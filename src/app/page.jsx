@@ -1,38 +1,19 @@
 import Link from "next/link";
 import styles from "./homepage.module.css";
+import Featured from "@/components/featured/Featured";
+import CategoryList from "@/components/categoryList/CategoryList";
+import CardList from "@/components/cardList/CardList";
+import Menu from "@/components/menu/Menu";
 
 export default function Home() {
   return (
-    <div>
-      <Link href="/">
-        <h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-          suscipit dignissimos in aspernatur corrupti vel magnam adipisci alias
-          nam? Laudantium dolorum ea aspernatur numquam reprehenderit voluptates
-        </h1>
-        est eaque voluptatibus vitae? Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Doloribus suscipit dignissimos in aspernatur corrupti
-        vel magnam adipisci alias nam? Laudantium dolorum ea aspernatur numquam
-        reprehenderit voluptates est eaque voluptatibus vitae? Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Doloribus suscipit dignissimos in
-        aspernatur corrupti vel magnam adipisci alias nam? Laudantium dolorum ea
-        aspernatur numquam reprehenderit voluptates est eaque voluptatibus
-        vitae? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Doloribus suscipit dignissimos in aspernatur corrupti vel magnam
-        adipisci alias nam? Laudantium dolorum ea aspernatur numquam
-        reprehenderit voluptates est eaque voluptatibus vitae? Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Doloribus suscipit dignissimos in
-        aspernatur corrupti vel magnam adipisci alias nam? Laudantium dolorum ea
-        aspernatur numquam reprehenderit voluptates est eaque voluptatibus
-        vitae? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Doloribus suscipit dignissimos in aspernatur corrupti vel magnam
-        adipisci alias nam? Laudantium dolorum ea aspernatur numquam
-        reprehenderit voluptates est eaque voluptatibus vitae? Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Doloribus suscipit dignissimos in
-        aspernatur corrupti vel magnam adipisci alias nam? Laudantium dolorum ea
-        aspernatur numquam reprehenderit voluptates est eaque voluptatibus
-        vitae?
-      </Link>
+    <div className={styles.container}>
+      <Featured />
+      <CategoryList />
+      <div className={styles.content}>
+        <CardList />
+        <Menu />
+      </div>
     </div>
   );
 }
