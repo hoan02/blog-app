@@ -9,10 +9,21 @@ const Navbar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.social}>
-        <Image src="/facebook.png" alt="facebook" width={24} height={24} />
-        <Image src="/instagram.png" alt="instagram" width={24} height={24} />
-        <Image src="/tiktok.png" alt="tiktok" width={24} height={24} />
-        <Image src="/youtube.png" alt="youtube" width={24} height={24} />
+        <a href="https://www.facebook.com/hoanit02/" target="blank">
+          <Image src="/facebook.png" alt="facebook" width={24} height={24} />
+        </a>
+        <a href="https://www.instagram.com/hoanit02/" target="blank">
+          <Image src="/instagram.png" alt="instagram" width={24} height={24} />
+        </a>
+        {/* <a href="https://www.tiktok.com/@hoanit02" target="blank">
+          <Image src="/tiktok.png" alt="tiktok" width={24} height={24} />
+        </a> */}
+        <a href="https://www.youtube.com/@hoancute" target="blank">
+          <Image src="/youtube.png" alt="youtube" width={24} height={24} />
+        </a>
+        <a href="https://github.com/hoan02" target="blank">
+          <Image src="/github.png" alt="github" width={24} height={24} />
+        </a>
       </div>
       <div className={styles.logo}>hoanblog</div>
       <div className={styles.links}>
