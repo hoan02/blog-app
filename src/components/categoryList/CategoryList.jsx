@@ -3,89 +3,43 @@ import styles from "./categoryList.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const CategoryList = () => {
+const getData = async () => {
+  const res = await fetch("http://localhost:3000/api/categories", {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch category!");
+  }
+
+  return res.json();
+};
+
+const CategoryList = async () => {
+  const data = await getData();
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Popular Categories</h1>
       <div className={styles.categories}>
-        <Link
-          className={`${styles.category} ${styles.style}`}
-          href="/blog?cat=style"
-        >
-          <Image
-            className={styles.image}
-            src="/style.png"
-            alt="style"
-            width={32}
-            height={32}
-          />
-          Style
-        </Link>
-        <Link
-          className={`${styles.category} ${styles.fashion}`}
-          href="/blog?cat=fashion"
-        >
-          <Image
-            className={styles.image}
-            src="/fashion.png"
-            alt="fashion"
-            width={32}
-            height={32}
-          />
-          Fashion
-        </Link>
-        <Link
-          className={`${styles.category} ${styles.food}`}
-          href="/blog?cat=food"
-        >
-          <Image
-            className={styles.image}
-            src="/food.png"
-            alt="food"
-            width={32}
-            height={32}
-          />
-          Food
-        </Link>
-        <Link
-          className={`${styles.category} ${styles.travel}`}
-          href="/blog?cat=travel"
-        >
-          <Image
-            className={styles.image}
-            src="/travel.png"
-            alt="travel"
-            width={32}
-            height={32}
-          />
-          Travel
-        </Link>
-        <Link
-          className={`${styles.category} ${styles.culture}`}
-          href="/blog?cat=culture"
-        >
-          <Image
-            className={styles.image}
-            src="/culture.png"
-            alt="culture"
-            width={32}
-            height={32}
-          />
-          Culture
-        </Link>
-        <Link
-          className={`${styles.category} ${styles.coding}`}
-          href="/blog?cat=coding"
-        >
-          <Image
-            className={styles.image}
-            src="/coding.png"
-            alt="coding"
-            width={32}
-            height={32}
-          />
-          Coding
-        </Link>
+        {data?.map((item) => (
+          <Link
+            className={`${styles.category} ${styles[item.slug]}`}
+            href="/blog?cat=style"
+            key={item._id}
+          >
+            {item.img && (
+              <Image
+                className={styles.image}
+                src={item.img}
+                alt="style"
+                width={32}
+                height={32}
+              />
+            )}
+            {item.title}
+          </Link>
+        ))}
       </div>
     </div>
   );
